@@ -7,3 +7,10 @@ KursRepository zu Kurs SQL Server - Monitoring und Performance-Tuning  der ppedv
 
 ## Setup
 ### MAXDOP RAM HDDs Features
+
+## DB Design
+### schlechtes Design (Datentypen
+### Messen der Seitenauslastung
+### Kompression
+
+
