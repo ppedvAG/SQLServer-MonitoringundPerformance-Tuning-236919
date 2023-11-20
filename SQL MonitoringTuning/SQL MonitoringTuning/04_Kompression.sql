@@ -18,7 +18,14 @@ Zeilenkompression und Seitenkompression
 
 set statistics io, time on
 
-select * from KursDB..t1
+create table t1 (id int identity, spx char(4100))
+
+insert into t1 
+select 'XY'
+GO 20000
+
+
+select * from testdb..t1
 
 --Seiten: 20000   CPU: 296   verstr Zeit: 1806
 
@@ -32,7 +39,7 @@ select * from KursDB..t1
 
 set statistics io, time on
 
-select * from KursDB..t1
+select * from testdb..t1
 
 --Seiten kommen 1:1 in RAM
 --Seiten: weniger oder gleich = 33 Seiten !!
@@ -49,7 +56,7 @@ select * from KursDB..t1
 
 --die Idee der Kompression... Mehr RAM für andere!!!!
 
-Erwartungshorizont der Kompression in der Praxis: 40 bis 60%.. Text besser als Zahlen komprimierbar
+--Erwartungshorizont der Kompression in der Praxis: 40 bis 60%.. Text besser als Zahlen komprimierbar
 
    --Kompression hift: dass andere Tabellen besser Platz im RAM finden
 
