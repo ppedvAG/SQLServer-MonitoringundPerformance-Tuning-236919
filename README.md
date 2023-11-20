@@ -12,5 +12,7 @@ KursRepository zu Kurs SQL Server - Monitoring und Performance-Tuning  der ppedv
 ### schlechtes Design (Datentypen
 ### Messen der Seitenauslastung
 ### Kompression
+### part Sicht
+### Partitionierung
 
 
