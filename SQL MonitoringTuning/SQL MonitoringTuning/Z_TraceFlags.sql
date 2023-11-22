@@ -19,13 +19,17 @@ dbcc tracestatus (-1)--welche sind global aktiviert
 --Global 1 = true  0 = False
 --Sitzung 1=True 0 = False
 
-
+--ältere Server
 dbcc tracestatus (1118, 1117)-- aktiviert?
-dbcc traceon (3226,-1) --setzen--> Only Successful Backups in History
 
-3042 so that backups don’t write out the full size before being compressed at the end 
+dbcc traceon (3226,-1) --setzen--> 
+Only Successful Backups in History
 
-9567 Legacy Cardinal Estimation
+3042 
+Backups schreiben nicht volle Größe weg before am Ende komprimiert wird
+ 
+9567 
+Legacy Cardinal Estimation
 
 7752: Asynchronous load of Query Store.
-I would rather get databases up faster than wait for Query Store to finish loading.
+DB starten schneller, dann erst wird der QueryStore nachgeladen

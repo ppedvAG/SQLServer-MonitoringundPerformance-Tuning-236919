@@ -13,50 +13,18 @@ zu einer Wartung gehört auch das Aktualisieren von Statistiken.
 Statistiken: SQL prüft  -vor Ausführung von Abfragen - wieviele Zeilen zurückkommen.
 Diese Anzahl wird aus einem Histogramm gebildet, das der SQL Server automatisch erstellt.
 
+Tipp aus der Praxis: 
+Statistiken auf mind 70% der Daten aktualisieren lassen. 
+Das scheint ausreichend genug zu sein
+
 Histogramm: Verteilung der Daten innerhalb einer Spalte (oder auch mehr Spalten)
 Werden nicht bei jedem I U D aktualisiert und können somit im Laufe der Zeit falsch sein..
 
---Plan muss aber aufgrund der zu erwartenden Menge für SEEK oder SCAN entscheiden...
+-->Plan muss aber aufgrund der zu erwartenden Menge für SEEK oder SCAN entscheiden...
+liegt die Statistik falsch, dann auch der Plan
 
 
 Je "korrekter" diese sind, desto exakter kann ein Ausführungsplan eingeschätzt werden...
-
-
-Tools.. Datenbankoptimierungsassistent
-Finden einer geeigneten IX Strategie
-
-
-Einstellungen: 
-
-Indizes und Indizierte Sichten
-Partitionierung oder Columnstore wählen
-Keine pyhs. Entwurfsstrukturen beibehalten
-Erweiterte Optionen
-Zeitlich beschränkt--> unter erweiterten Optionen. 
-Max Speicher Wert übernehmen und anklicken
-Wenn möglich Online
-
-Evtl Online mit sortieren in Tempdb
-	
-
-
----Tool Perfmon und Profiler
-
-Daten des Perfmon könne in Profiler geladen werden
---Aufzeichnung neu öffnen
---Datei--> Import der Perfmon Daten
-
-die Aufzeichnung des Profiler kann auch für den Datenbankoptimierungsratgeber verwendet werden.-- IX finden und Löschen auf der Basis eines typischen Workload
-(oder über QueryStore)
-
-Profiler unbedingt gut filtern, sonst zeichnen wir jede Aktion jedes users auf (auch Klicks im SSMS)
-TSQL Start und Completet
-
-Stored Procedures
-SP:RPC Completet und SP:StmtCompletet
-Messdaten: Dauer / CPU / Lesen / Reads / Apllication / Login / Textdata / Host /Dauer
-Filter: Kann nur erstellt werden, wenn auch die Soalte zu sehen ist.. 
-	zB: Databasename like 'northwind' , Login='Domäne\User', CPU > 1000ms
 
 
 
@@ -68,6 +36,9 @@ Filter: Kann nur erstellt werden, wenn auch die Soalte zu sehen ist..
 							  -- > ab 30% Rebuild
 --der Wartungsplan deckt dies ab (aber erst seit SQL 2016)
 
+
+Alternative:
+Script von Ola Hallengren
 
 
 
